@@ -1,38 +1,54 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: "Nunito", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* header */
+header {
+  border: solid 2px black;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.login_btn,
+.addList_btn {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 800;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+}
+
+.login_btn {
+  background-color: #7b4ec3;
+  border: none;
   color: white;
+  margin: 0 12px 0 12px;
+}
+.login_btn:hover {
+  background-color: #9069cd;
+}
+.fa-magnifying-glass,
+.addList_btn {
+  color: #7b4ec3;
 }
 
-.App-link {
-  color: #61dafb;
+.addList_btn {
+  background-color: #fff;
+  border: solid 1px #7b4ec3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main_container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.HighestRatesCarousel {
+  border: 1px solid red;
 }
