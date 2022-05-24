@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import StarRatingComponent from "react-star-rating-component";
 
 export default function HighestRatesCarousel() {
   const [data, setData] = useState();
@@ -33,15 +34,18 @@ export default function HighestRatesCarousel() {
         const response = await axios.get(
           "https://res.cloudinary.com/lereacteur-apollo/raw/upload/v1575242111/10w-full-stack/Scraping/restaurants.json"
         );
+
         setData(
           response.data
+            .sort(function (a, b) {
+              return a.category - b.category;
+            })
             .sort(function (a, b) {
               return b.rating - a.rating;
             })
             .slice(0, 10)
         );
 
-        // console.log(response.data);
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);
@@ -54,14 +58,57 @@ export default function HighestRatesCarousel() {
     <div>Loading</div>
   ) : (
     <div className="main_container">
-      <Carousel className="HighestRatesCarousel" responsive={responsive}>
+      <h2 className="carousel_title">
+        10 Best Vegan Restaurants in Paris, France
+      </h2>
+      <Carousel
+        className="HighestRatesCarousel"
+        responsive={responsive}
+        swipeable={false}
+        draggable={false}
+        autoPlay={false}
+      >
         {data.map((item, index) => {
+          // const tabAddress = item.address.split(",");
+
           return (
-            <div key={index}>
-              <img
-                style={{ height: "100px", width: "100px" }}
-                source={item.thumbnail}
-                alt="test"
+            <div className="carousel_item" key={index}>
+              <img className="carousel_img" src={item.thumbnail} alt="" />
+              <div className="carousel_itemName">{item.name}</div>
+
+              {/* <div className="carousel_addressItem">
+                {tabAddress[tabAddress.length - 3]},
+                {tabAddress[tabAddress.length - 2]}
+              </div> */}
+
+              <StarRatingComponent
+                name="app6"
+                starColor="#FEDB5A"
+                emptyStarColor="#FEDB5A"
+                value={item.rating}
+                renderStarIcon={(index, value) => {
+                  return (
+                    <span>
+                      <i
+                        className={
+                          index <= value ? "fas fa-star" : "far fa-star"
+                        }
+                      />
+                    </span>
+                  );
+                }}
+                renderStarIconHalf={() => {
+                  return (
+                    <span>
+                      <span style={{ position: "absolute" }}>
+                        <i className="far fa-star" />
+                      </span>
+                      <span>
+                        <i className="fas fa-star-half" />
+                      </span>
+                    </span>
+                  );
+                }}
               />
             </div>
           );
