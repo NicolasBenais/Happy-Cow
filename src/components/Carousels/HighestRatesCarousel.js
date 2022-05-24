@@ -1,9 +1,13 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import StarRatingComponent from "react-star-rating-component";
+
+// Style
+import styles from "./HighestRatesCarousel.module.css";
 
 export default function HighestRatesCarousel() {
   const [data, setData] = useState();
@@ -57,63 +61,63 @@ export default function HighestRatesCarousel() {
   return isLoading ? (
     <div>Loading</div>
   ) : (
-    <div className="main_container">
-      <h2 className="carousel_title">
-        10 Best Vegan Restaurants in Paris, France
-      </h2>
-      <Carousel
-        className="HighestRatesCarousel"
-        responsive={responsive}
-        swipeable={false}
-        draggable={false}
-        autoPlay={false}
-      >
-        {data.map((item, index) => {
-          // const tabAddress = item.address.split(",");
+    <Carousel
+      className={styles.HighestRatesCarousel}
+      responsive={responsive}
+      swipeable={false}
+      draggable={false}
+      shouldResetAutoplay={false}
+    >
+      {data.map((item, index) => {
+        // const tabAddress = item.address.split(",");
+        console.log(item);
+        return (
+          <div className={styles.carousel_item} key={index}>
+            <Link to="/reviews" state={{ from: "occupation" }}>
+              <img
+                className={styles.carousel_img}
+                src={item.thumbnail}
+                alt=""
+              />
+            </Link>
 
-          return (
-            <div className="carousel_item" key={index}>
-              <img className="carousel_img" src={item.thumbnail} alt="" />
-              <div className="carousel_itemName">{item.name}</div>
+            <div className={styles.carousel_itemName}>{item.name}</div>
 
-              {/* <div className="carousel_addressItem">
+            {/* <div className="carousel_addressItem">
                 {tabAddress[tabAddress.length - 3]},
                 {tabAddress[tabAddress.length - 2]}
               </div> */}
 
-              <StarRatingComponent
-                name="app6"
-                starColor="#FEDB5A"
-                emptyStarColor="#FEDB5A"
-                value={item.rating}
-                renderStarIcon={(index, value) => {
-                  return (
-                    <span>
-                      <i
-                        className={
-                          index <= value ? "fas fa-star" : "far fa-star"
-                        }
-                      />
+            <StarRatingComponent
+              name="app6"
+              starColor="#FEDB5A"
+              emptyStarColor="#FEDB5A"
+              value={item.rating}
+              renderStarIcon={(index, value) => {
+                return (
+                  <span>
+                    <i
+                      className={index <= value ? "fas fa-star" : "far fa-star"}
+                    />
+                  </span>
+                );
+              }}
+              renderStarIconHalf={() => {
+                return (
+                  <span>
+                    <span style={{ position: "absolute" }}>
+                      <i className="far fa-star" />
                     </span>
-                  );
-                }}
-                renderStarIconHalf={() => {
-                  return (
                     <span>
-                      <span style={{ position: "absolute" }}>
-                        <i className="far fa-star" />
-                      </span>
-                      <span>
-                        <i className="fas fa-star-half" />
-                      </span>
+                      <i className="fas fa-star-half" />
                     </span>
-                  );
-                }}
-              />
-            </div>
-          );
-        })}
-      </Carousel>
-    </div>
+                  </span>
+                );
+              }}
+            />
+          </div>
+        );
+      })}
+    </Carousel>
   );
 }

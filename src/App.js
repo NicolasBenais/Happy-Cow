@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Pages
 import Home from "./pages/Home/Home";
-
+import Reviews from "./pages/Reviews/Reviews";
 // Components
 // import Header from "./components/Header/Header";
 
@@ -19,6 +19,7 @@ function App() {
       {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/reviews" element={<Reviews />} />
       </Routes>
     </Router>
   );
