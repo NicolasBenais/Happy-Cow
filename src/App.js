@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Reviews from "./pages/Reviews/Reviews";
 // Components
-// import Header from "./components/Header/Header";
+import Header from "./components/Header/Header";
 
 function App() {
   // const [isTokenPresent, setIsTokenPresent] = useState(
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <Router>
-      {/* <Header /> */}
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/reviews" element={<Reviews />} />

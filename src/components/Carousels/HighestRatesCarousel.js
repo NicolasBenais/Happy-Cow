@@ -73,7 +73,7 @@ export default function HighestRatesCarousel() {
         console.log(item);
         return (
           <div className={styles.carousel_item} key={index}>
-            <Link to="/reviews" state={{ from: "occupation" }}>
+            <Link to={"/reviews"} state={{ item: item }}>
               <img
                 className={styles.carousel_img}
                 src={item.thumbnail}
