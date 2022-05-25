@@ -69,11 +69,9 @@ export default function HighestRatesCarousel() {
       shouldResetAutoplay={false}
     >
       {data.map((item, index) => {
-        // const tabAddress = item.address.split(",");
-        console.log(item);
         return (
           <div className={styles.carousel_item} key={index}>
-            <Link to={"/reviews"} state={{ item: item }}>
+            <Link to="/reviews" state={item}>
               <img
                 className={styles.carousel_img}
                 src={item.thumbnail}
@@ -82,11 +80,6 @@ export default function HighestRatesCarousel() {
             </Link>
 
             <div className={styles.carousel_itemName}>{item.name}</div>
-
-            {/* <div className="carousel_addressItem">
-                {tabAddress[tabAddress.length - 3]},
-                {tabAddress[tabAddress.length - 2]}
-              </div> */}
 
             <StarRatingComponent
               name="app6"
