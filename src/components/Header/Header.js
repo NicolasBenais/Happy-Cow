@@ -1,6 +1,9 @@
 import Logo from "../../assets/img/logo";
 import { Link } from "react-router-dom";
 
+// Package
+import Modal from "react-modal";
+
 // Style
 import styles from "./Header.module.css";
 

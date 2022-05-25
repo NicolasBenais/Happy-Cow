@@ -78,8 +78,9 @@ export default function HighestRatesCarousel() {
                 alt=""
               />
             </Link>
-
-            <div className={styles.carousel_itemName}>{item.name}</div>
+            <Link to="/reviews" state={item}>
+              <div className={styles.carousel_itemName}>{item.name}</div>
+            </Link>
 
             <StarRatingComponent
               name="app6"

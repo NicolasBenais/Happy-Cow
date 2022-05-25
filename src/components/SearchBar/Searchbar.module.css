@@ -1,0 +1,30 @@
+.searchbar_container {
+  display: flex;
+  /* width: 50rem; */
+}
+
+.searchbar_input {
+  width: 50rem;
+  height: 3rem;
+  outline: none;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border: none;
+  padding: 12px;
+}
+
+.button {
+  background-color: #7b4ec3;
+  color: white;
+  padding: 0 14px;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.button:hover {
+  background-color: #9069cd;
+  cursor: pointer;
+}

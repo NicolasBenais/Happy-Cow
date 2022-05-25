@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Pages
 import Home from "./pages/Home/Home";
 import Reviews from "./pages/Reviews/Reviews";
+import Search from "./pages/Search/Search";
 // Components
 import Header from "./components/Header/Header";
 
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/reviews" element={<Reviews />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </Router>
   );

@@ -1,23 +1,28 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 // Style
 import styles from "./Searchbar.module.css";
 
 export default function Searchbar() {
-  const [onSearchbar, setOnSearchbar] = useState("");
+  const [onSearchBar, setOnSearchBar] = useState("");
 
-  const handleSubmit = () => {};
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          onChange={(event) => {
-            setOnSearchbar(event.target.value);
-          }}
-        />
-      </form>
-      <button type="submit">Loupe</button>
+    <div className={styles.searchbar_container}>
+      <input
+        className={styles.searchbar_input}
+        placeholder="Search for city, region, or zipcode"
+        value={onSearchBar}
+        type="text"
+        onChange={(event) => {
+          setOnSearchBar(event.target.value);
+        }}
+      />
+      <Link to="/search" state={onSearchBar}>
+        <div className={styles.button}>
+          <i className="fa-solid fa-magnifying-glass fa-2xl"></i>
+        </div>
+      </Link>
     </div>
   );
 }

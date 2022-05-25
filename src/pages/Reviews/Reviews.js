@@ -1,8 +1,15 @@
 import { useLocation } from "react-router-dom";
 import StarRatingComponent from "react-star-rating-component";
 import { Link } from "react-router-dom";
+
+// Packages
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+
+// Assets
+import VeganIcon from "../../assets/img/veganIcon";
+import VegetarianIcon from "../../assets/img/vegetarianIcon";
 
 // Style
 import styles from "./Reviews.module.css";
@@ -14,6 +21,17 @@ export default function Reviews() {
 
   const tabAddress = state.address.split(",");
 
+  const veganMapMarker = new L.Icon({
+    iconUrl: "https://www.happycow.net/img/category/category_vegan.svg?1",
+    iconSize: [30, 30],
+    iconAnchor: [15, 30],
+  });
+
+  const vegetarianMapMarker = new L.Icon({
+    iconUrl: "https://www.happycow.net/img/category/category_vegetarian.svg?1",
+    iconSize: [30, 30],
+    iconAnchor: [15, 30],
+  });
   return (
     <main>
       <div
@@ -27,16 +45,14 @@ export default function Reviews() {
         <span className={styles.type_and_stars}>
           {state.type === "vegan" && (
             <span className={styles.vegan_type}>
-              <span style={{ marginRight: "8px" }}>
-                <i className="fa-solid fa-leaf"></i>
-              </span>
-              <span>Vegan</span>
+              <VeganIcon width={"30px"} height={"30px"} />
+              <span style={{ marginLeft: "8px" }}>Vegan</span>
             </span>
           )}
           {state.type === "vegetarian" && (
             <span className={styles.vegetarian_type}>
-              <i className="fa-solid fa-seedling"></i>
-              <span> Vegetarian</span>
+              <VegetarianIcon width={"30px"} height={"30px"} />
+              <span style={{ marginLeft: "8px" }}>Vegetarian</span>
             </span>
           )}
           <StarRatingComponent
@@ -175,9 +191,17 @@ export default function Reviews() {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-              <Marker position={[state.location.lat, state.location.lng]}>
-                <i className="fa-solid fa-leaf"></i>
-              </Marker>
+              {state.type === "vegan" ? (
+                <Marker
+                  position={[state.location.lat, state.location.lng]}
+                  icon={veganMapMarker}
+                ></Marker>
+              ) : (
+                <Marker
+                  position={[state.location.lat, state.location.lng]}
+                  icon={vegetarianMapMarker}
+                ></Marker>
+              )}
             </MapContainer>
           </div>
         </div>
