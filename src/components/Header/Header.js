@@ -9,13 +9,13 @@ import AuthModal from "../AuthModal/AuthModal";
 // Style
 import styles from "./Header.module.css";
 
-export default function Header() {
+export default function Header({ setIsTokenPresent }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <header className={styles.header}>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <AuthModal />
+        <AuthModal setIsTokenPresent={setIsTokenPresent} />
       </Modal>
       <nav className={styles.left_header}>
         <Link to="/">
