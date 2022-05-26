@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 // Packages
 import HighestRatesCarousel from "../../components/Carousels/HighestRatesCarousel";
 
@@ -17,9 +15,11 @@ export default function Home() {
     <main>
       <div className={styles.banner}>
         <img src={bannerImg} alt="" />
-        <p>Find Vegan Restaurants Nearby</p>
-        <div className={styles.searchbar}>
-          <Searchbar />
+        <div className={styles.banner_content}>
+          <p>Find Vegan Restaurants Nearby</p>
+          <div className={styles.searchbar}>
+            <Searchbar />
+          </div>
         </div>
       </div>
       <div className={styles.main_container}>

@@ -2,7 +2,9 @@
   box-sizing: border-box;
 }
 
-body {
+body,
+input::placeholder,
+button {
   font-family: "Nunito", sans-serif;
 }
 
@@ -12,5 +14,4 @@ a {
 
 main {
   padding-top: 63px;
-  /* border: 2px solid black; */
 }

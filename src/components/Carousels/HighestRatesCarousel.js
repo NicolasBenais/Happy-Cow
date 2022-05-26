@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 // Packages
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import StarRatingComponent from "react-star-rating-component";
+
+// Components
+import StarRating from "../../components/StarRating/StarRating";
 
 // Style
 import styles from "./HighestRatesCarousel.module.css";
@@ -83,33 +85,7 @@ export default function HighestRatesCarousel() {
               <div className={styles.carousel_itemName}>{item.name}</div>
             </Link>
 
-            <StarRatingComponent
-              name="app6"
-              starColor="#FEDB5A"
-              emptyStarColor="#FEDB5A"
-              value={item.rating}
-              renderStarIcon={(index, value) => {
-                return (
-                  <span>
-                    <i
-                      className={index <= value ? "fas fa-star" : "far fa-star"}
-                    />
-                  </span>
-                );
-              }}
-              renderStarIconHalf={() => {
-                return (
-                  <span>
-                    <span style={{ position: "absolute" }}>
-                      <i className="far fa-star" />
-                    </span>
-                    <span>
-                      <i className="fas fa-star-half" />
-                    </span>
-                  </span>
-                );
-              }}
-            />
+            <StarRating rating={item.rating} />
           </div>
         );
       })}

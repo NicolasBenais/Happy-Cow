@@ -1,0 +1,24 @@
+.input_name {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 800;
+  color: #444444;
+  margin-top: 16px;
+}
+
+.submit_btn {
+  width: 100%;
+  margin-top: 20px;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 800;
+  background-color: #7b4ec3;
+  cursor: pointer;
+}
+
+.submit_btn:hover {
+  background-color: #9069cd;
+}

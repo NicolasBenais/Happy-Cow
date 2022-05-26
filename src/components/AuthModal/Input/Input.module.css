@@ -1,0 +1,8 @@
+.input_form {
+  padding: 12px;
+  width: 370px;
+  outline: none;
+  border-radius: 8px;
+  border: 1px solid lightgrey;
+  margin-top: 4px;
+}

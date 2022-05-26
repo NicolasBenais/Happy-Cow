@@ -1,0 +1,68 @@
+.modal_container {
+  display: flex;
+  background-color: #fff;
+  max-height: 95vh;
+  max-width: 95vw;
+  overflow: auto;
+  border-radius: 8px;
+}
+
+.right_modal_container {
+  padding: 48px;
+}
+
+.left_modal_container > img {
+  height: 100%;
+}
+
+.left_modal_container {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.text_modal {
+  position: absolute;
+  padding: 28px;
+  color: white;
+}
+
+.text_modal > p:first-child {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.text_modal > p:last-child {
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 600;
+}
+
+.top_modal_btns {
+  margin-bottom: 28px;
+  display: flex;
+}
+
+.modal_btn {
+  position: relative;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 800;
+  color: #444444;
+  border: none;
+  background-color: white;
+  margin-right: 24px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.active_btn::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #7b4ec3;
+  border-radius: 2px;
+}

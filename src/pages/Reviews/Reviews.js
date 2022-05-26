@@ -2,7 +2,6 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 // Packages
-import StarRatingComponent from "react-star-rating-component";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
@@ -10,6 +9,9 @@ import L from "leaflet";
 // Assets
 import VeganIcon from "../../assets/img/veganIcon";
 import VegetarianIcon from "../../assets/img/vegetarianIcon";
+
+// Components
+import StarRating from "../../components/StarRating/StarRating";
 
 // Style
 import styles from "./Reviews.module.css";
@@ -55,33 +57,7 @@ export default function Reviews() {
               <span style={{ marginLeft: "8px" }}>Vegetarian</span>
             </span>
           )}
-          <StarRatingComponent
-            name="app6"
-            starColor="#FEDB5A"
-            emptyStarColor="#FEDB5A"
-            value={state.rating}
-            renderStarIcon={(index, value) => {
-              return (
-                <span>
-                  <i
-                    className={index <= value ? "fas fa-star" : "far fa-star"}
-                  />
-                </span>
-              );
-            }}
-            renderStarIconHalf={() => {
-              return (
-                <span>
-                  <span style={{ position: "absolute" }}>
-                    <i className="far fa-star" />
-                  </span>
-                  <span>
-                    <i className="fas fa-star-half" />
-                  </span>
-                </span>
-              );
-            }}
-          />
+          <StarRating rating={state.rating} />
         </span>
         <span>
           <button className={styles.reviews_btn}>

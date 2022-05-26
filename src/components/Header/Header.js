@@ -1,15 +1,22 @@
 import Logo from "../../assets/img/logo";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
-// Package
-import Modal from "react-modal";
+// Components
+import Modal from "../Modal/Modal";
+import AuthModal from "../AuthModal/AuthModal";
 
 // Style
 import styles from "./Header.module.css";
 
 export default function Header() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <header className={styles.header}>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <AuthModal />
+      </Modal>
       <nav className={styles.left_header}>
         <Link to="/">
           <span
@@ -35,7 +42,12 @@ export default function Header() {
 
         <button className={styles.addList_btn}>Add listing</button>
 
-        <button className={styles.login_btn}>Login / Join</button>
+        <button
+          className={styles.login_btn}
+          onClick={() => setIsModalOpen(true)}
+        >
+          Login / Join
+        </button>
       </div>
     </header>
   );

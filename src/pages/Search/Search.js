@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 
 // Packages
-import StarRatingComponent from "react-star-rating-component";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+
+// Components
+import StarRating from "../../components/StarRating/StarRating";
 
 // Style
 import styles from "./Search.module.css";
@@ -81,35 +83,7 @@ export default function Search() {
                 <div className={styles.item_informations}>
                   <div className={styles.item_name}>{item.name}</div>
                   <div className={styles.item_starsRates}>
-                    <StarRatingComponent
-                      name="app6"
-                      starColor="#FEDB5A"
-                      emptyStarColor="#FEDB5A"
-                      value={item.rating}
-                      renderStarIcon={(index, value) => {
-                        return (
-                          <span>
-                            <i
-                              className={
-                                index <= value ? "fas fa-star" : "far fa-star"
-                              }
-                            />
-                          </span>
-                        );
-                      }}
-                      renderStarIconHalf={() => {
-                        return (
-                          <span>
-                            <span style={{ position: "absolute" }}>
-                              <i className="far fa-star" />
-                            </span>
-                            <span>
-                              <i className="fas fa-star-half" />
-                            </span>
-                          </span>
-                        );
-                      }}
-                    />
+                    <StarRating rating={item.rating} />
                   </div>
                   <div className={styles.item_price_distance}>
                     <span className={styles.price}></span>
