@@ -1,8 +1,8 @@
 import { useLocation } from "react-router-dom";
-import StarRatingComponent from "react-star-rating-component";
 import { Link } from "react-router-dom";
 
 // Packages
+import StarRatingComponent from "react-star-rating-component";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";

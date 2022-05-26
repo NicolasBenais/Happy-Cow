@@ -9,3 +9,8 @@ body {
 a {
   text-decoration: none;
 }
+
+main {
+  padding-top: 63px;
+  /* border: 2px solid black; */
+}

@@ -12,8 +12,14 @@ export default function Header() {
     <header className={styles.header}>
       <nav className={styles.left_header}>
         <Link to="/">
-          <span style={{ marginRight: "16px", marginLeft: "16px" }}>
-            <Logo width={"160px"} height={"70px"} />
+          <span
+            style={{
+              display: "block",
+              marginRight: "16px",
+              marginLeft: "16px",
+            }}
+          >
+            <Logo width="180px" height="41x" />
           </span>
         </Link>
         <span>Explore</span>
