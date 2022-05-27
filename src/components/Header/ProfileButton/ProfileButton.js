@@ -1,4 +1,8 @@
 import Cookies from "js-cookie";
+import { useState } from "react";
+
+// Components
+import UserMenu from "../UserMenu/UserMenu";
 
 // Assets
 import ProfileIcone from "../../../assets/img/profileIcon";
@@ -6,10 +10,8 @@ import ProfileIcone from "../../../assets/img/profileIcon";
 // Styles
 import styles from "./ProfileButton.module.css";
 
-export default function ProfileButton({
-  isProfileMenuOpen,
-  setIsProfileMenuOpen,
-}) {
+export default function ProfileButton({ setIsTokenPresent }) {
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const firstname = Cookies.get("firstname");
   const lastname = Cookies.get("lastname");
 
@@ -20,6 +22,13 @@ export default function ProfileButton({
     >
       <div>
         <ProfileIcone />
+        {isProfileMenuOpen && (
+          <UserMenu
+            isOpen={isProfileMenuOpen}
+            setIsProfileMenuOpen={setIsProfileMenuOpen}
+            setIsTokenPresent={setIsTokenPresent}
+          />
+        )}
         <span>
           {firstname}
           {lastname.toUpperCase()}

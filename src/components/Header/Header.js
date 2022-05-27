@@ -6,21 +6,22 @@ import { useState } from "react";
 import Modal from "../Modal/Modal";
 import AuthModal from "../AuthModal/AuthModal";
 import ProfileButton from "./ProfileButton/ProfileButton";
-// import UserMenu from "./UserMenu/UserMenu";
 
 // Style
 import styles from "./Header.module.css";
 
 export default function Header({ isTokenPresent, setIsTokenPresent }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 
   return (
     <header className={styles.header}>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+      <Modal
+        isTokenPresent={isTokenPresent}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      >
         <AuthModal setIsTokenPresent={setIsTokenPresent} />
       </Modal>
-      {/* <UserMenu /> */}
       <nav className={styles.left_header}>
         <Link to="/">
           <span
@@ -44,10 +45,7 @@ export default function Header({ isTokenPresent, setIsTokenPresent }) {
       <div className={styles.right_header}>
         <button className={styles.addList_btn}>Add listing</button>
         {isTokenPresent ? (
-          <ProfileButton
-            isProfileMenuOpen={isProfileMenuOpen}
-            setIsProfileMenuOpen={setIsProfileMenuOpen}
-          />
+          <ProfileButton setIsTokenPresent={setIsTokenPresent} />
         ) : (
           <button
             className={styles.login_btn}

@@ -5,7 +5,7 @@ import styles from "./Modal.module.css";
 
 export default function Modal({ isOpen, onClose, children }) {
   // TODO: supprimer cette ref
-  const containerRef = useRef();
+  // const containerRef = useRef();
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -29,7 +29,7 @@ export default function Modal({ isOpen, onClose, children }) {
     <div className={styles.backdrop} onClick={onClose}>
       <div
         className={styles.modal}
-        ref={containerRef}
+        // ref={containerRef}
         onClick={(event) => event.stopPropagation()}
       >
         {children}

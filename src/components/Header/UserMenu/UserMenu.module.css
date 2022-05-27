@@ -1,0 +1,17 @@
+.profile_menu {
+  position: absolute;
+  right: 8px;
+  top: 50px;
+  background-color: #7b4ec3;
+  border: none;
+  color: white;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 4px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.profile_menu:hover {
+  background-color: #9069cd;
+}

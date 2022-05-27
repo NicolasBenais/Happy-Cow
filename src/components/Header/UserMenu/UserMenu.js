@@ -7,16 +7,28 @@
 // Si c'est le cas, c'est que j'ai cliqué sur le menu donc je ne fais rien sinon je ferme le menu
 // Pour checker c'est : !ref.current.contains(event.target)
 
-// import { useEffect, useRef } from "react";
+import Cookies from "js-cookie";
 
-// export default function UserMenu() {
-//   const containerRef = useRef();
+// Style
+import styles from "./UserMenu.module.css";
 
-//   useEffect(()=>{
-//       const handleClick = (event) => {
-
-//       }
-//   }, [])
-
-//   return <div ref={containerRef}>UserMenu</div>;
-// }
+export default function UserMenu({
+  isOpen,
+  setIsProfileMenuOpen,
+  setIsTokenPresent,
+}) {
+  return !isOpen ? null : (
+    <button
+      className={styles.profile_menu}
+      onClick={() => {
+        Cookies.remove("token");
+        Cookies.remove("firstname");
+        Cookies.remove("lastname");
+        setIsTokenPresent(false);
+        setIsProfileMenuOpen(false);
+      }}
+    >
+      Log out
+    </button>
+  );
+}
