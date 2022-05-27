@@ -13,7 +13,7 @@ import Header from "./components/Header/Header";
 
 function App() {
   const [isTokenPresent, setIsTokenPresent] = useState(
-    Cookies.get("TokenCookie") ? true : false
+    Cookies.get("token") ? true : false
   );
 
   return (

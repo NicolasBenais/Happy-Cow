@@ -18,7 +18,7 @@ export default function Login({ setIsTokenPresent }) {
 
     try {
       const response = await axios.post(
-        "https://git.heroku.com/happycow-nbns.git/login",
+        "https://happycow-nbns.herokuapp.com/login",
         {
           email,
           password,
@@ -26,6 +26,8 @@ export default function Login({ setIsTokenPresent }) {
       );
 
       Cookies.set("token", response.data.token);
+      Cookies.set("firstname", response.data.firstname);
+      Cookies.set("lastname", response.data.lastname);
       setIsTokenPresent(true);
     } catch (error) {
       console.log(error.message);
@@ -33,26 +35,24 @@ export default function Login({ setIsTokenPresent }) {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div className={styles.input_name}>Email</div>
-        <Input
-          type="email"
-          placeholder="Email"
-          value={email}
-          setValue={setEmail}
-        />
-        <div className={styles.input_name}>Password</div>
-        <Input
-          type="password"
-          placeholder="Password"
-          value={password}
-          setValue={setPassword}
-        />
-        <button className={styles.submit_btn} type="submit">
-          Login
-        </button>
-      </form>
-    </div>
+    <form className={styles.form_modal} onSubmit={handleSubmit}>
+      <div className={styles.input_name}>Email</div>
+      <Input
+        type="email"
+        placeholder="Email"
+        value={email}
+        setValue={setEmail}
+      />
+      <div className={styles.input_name}>Password</div>
+      <Input
+        type="password"
+        placeholder="Password"
+        value={password}
+        setValue={setPassword}
+      />
+      <button className={styles.submit_btn} type="submit">
+        Login
+      </button>
+    </form>
   );
 }

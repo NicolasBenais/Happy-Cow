@@ -10,7 +10,8 @@ import styles from "./Forms.module.css";
 
 export default function Signup({ setIsTokenPresent }) {
   const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -19,14 +20,17 @@ export default function Signup({ setIsTokenPresent }) {
 
     try {
       const response = await axios.post(
-        "https://git.heroku.com/happycow-nbns.git/signup",
+        "https://happycow-nbns.herokuapp.com/signup",
         {
           email,
-          username,
+          firstname,
+          lastname,
           password,
         }
       );
       Cookies.set("token", response.data.token);
+      Cookies.set("firstname", response.data.firstname);
+      Cookies.set("lastname", response.data.lastname);
       setIsTokenPresent(true);
     } catch (error) {
       console.log(error.message);
@@ -34,33 +38,38 @@ export default function Signup({ setIsTokenPresent }) {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div className={styles.input_name}>Email</div>
-        <Input
-          type="email"
-          placeholder="Email"
-          value={email}
-          setValue={setEmail}
-        />
-        <div className={styles.input_name}>Username</div>
-        <Input
-          type="text"
-          placeholder="Username"
-          value={username}
-          setValue={setUsername}
-        />
-        <div className={styles.input_name}>Password</div>
-        <Input
-          type="password"
-          placeholder="Password"
-          value={password}
-          setValue={setPassword}
-        />
-        <button className={styles.submit_btn} type="submit">
-          Sign Up
-        </button>
-      </form>
-    </div>
+    <form className={styles.form_modal} onSubmit={handleSubmit}>
+      <div className={styles.input_name}>Email</div>
+      <Input
+        type="email"
+        placeholder="Email"
+        value={email}
+        setValue={setEmail}
+      />
+      <div className={styles.input_name}>Firstname</div>
+      <Input
+        type="text"
+        placeholder="Firstname"
+        value={firstname}
+        setValue={setFirstname}
+      />
+      <div className={styles.input_name}>Lastname</div>
+      <Input
+        type="text"
+        placeholder="Lastname"
+        value={lastname}
+        setValue={setLastname}
+      />
+      <div className={styles.input_name}>Password</div>
+      <Input
+        type="password"
+        placeholder="Password"
+        value={password}
+        setValue={setPassword}
+      />
+      <button className={styles.submit_btn} type="submit">
+        Sign Up
+      </button>
+    </form>
   );
 }

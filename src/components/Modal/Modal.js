@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import styles from "./Modal.module.css";
 
 export default function Modal({ isOpen, onClose, children }) {
+  // TODO: supprimer cette ref
   const containerRef = useRef();
 
   useEffect(() => {

@@ -5,12 +5,14 @@ import { useState } from "react";
 // Components
 import Modal from "../Modal/Modal";
 import AuthModal from "../AuthModal/AuthModal";
+import ProfileButton from "./ProfileButton/ProfileButton";
 
 // Style
 import styles from "./Header.module.css";
 
-export default function Header({ setIsTokenPresent }) {
+export default function Header({ isTokenPresent, setIsTokenPresent }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 
   return (
     <header className={styles.header}>
@@ -38,16 +40,20 @@ export default function Header({ setIsTokenPresent }) {
         <span>More</span>
       </nav>
       <div className={styles.right_header}>
-        <i className="fa-solid fa-magnifying-glass fa-xl"></i>
-
         <button className={styles.addList_btn}>Add listing</button>
-
-        <button
-          className={styles.login_btn}
-          onClick={() => setIsModalOpen(true)}
-        >
-          Login / Join
-        </button>
+        {isTokenPresent ? (
+          <ProfileButton
+            isProfileMenuOpen={isProfileMenuOpen}
+            setIsProfileMenuOpen={setIsProfileMenuOpen}
+          />
+        ) : (
+          <button
+            className={styles.login_btn}
+            onClick={() => setIsModalOpen(true)}
+          >
+            Login / Join
+          </button>
+        )}
       </div>
     </header>
   );
