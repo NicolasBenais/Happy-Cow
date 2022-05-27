@@ -17,10 +17,13 @@ export default function Login({ setIsTokenPresent }) {
     event.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:4000/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://git.heroku.com/happycow-nbns.git/login",
+        {
+          email,
+          password,
+        }
+      );
 
       Cookies.set("token", response.data.token);
       setIsTokenPresent(true);

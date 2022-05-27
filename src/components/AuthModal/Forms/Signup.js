@@ -15,15 +15,17 @@ export default function Signup({ setIsTokenPresent }) {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (event) => {
-    console.log("test");
     event.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:4000/signup", {
-        email,
-        username,
-        password,
-      });
+      const response = await axios.post(
+        "https://git.heroku.com/happycow-nbns.git/signup",
+        {
+          email,
+          username,
+          password,
+        }
+      );
       Cookies.set("token", response.data.token);
       setIsTokenPresent(true);
     } catch (error) {
