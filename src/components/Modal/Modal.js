@@ -10,7 +10,6 @@ export default function Modal({ isOpen, onClose, children }) {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
-        console.log(containerRef.current);
         onClose();
       }
     };
