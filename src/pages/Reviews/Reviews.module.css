@@ -30,7 +30,6 @@
 }
 
 .top_container {
-  /* border: solid 2px blue; */
   padding: 12px 0;
   display: flex;
   align-items: center;
@@ -42,7 +41,6 @@
 }
 
 .type_and_stars {
-  /* border: 2px solid black; */
   display: flex;
   align-items: center;
 }
@@ -66,6 +64,10 @@
 
 .vegetarian_type {
   background-color: #8a2091;
+}
+
+.favorites_button_container {
+  margin-left: 16px;
 }
 
 .reviews_btn,
@@ -100,7 +102,6 @@
 }
 
 .location {
-  /* border: solid 1px black; */
   width: 1076px;
   margin: 28px auto 0 auto;
 }
@@ -110,7 +111,6 @@
 }
 
 .left_main_container {
-  /* border: solid green 1px; */
   display: flex;
   flex: 2;
   flex-direction: column;
@@ -118,7 +118,6 @@
 }
 
 .right_main_container {
-  /* border: solid red 1px; */
   margin-top: 20px;
   display: flex;
   flex: 1;
@@ -136,7 +135,6 @@
 }
 
 .pictures_container {
-  /* border: solid 1px black; */
   display: flex;
   justify-content: space-between;
   height: 337px;
@@ -144,7 +142,6 @@
 }
 
 .pictures_left_container {
-  /* border: solid 2px red; */
   width: calc(50% - 12px);
   height: 100%;
   object-fit: cover;
@@ -169,7 +166,6 @@
 }
 
 .informations_container {
-  /* border: solid 1px black; */
   display: flex;
   justify-content: space-around;
 }

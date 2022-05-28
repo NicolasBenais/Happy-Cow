@@ -90,16 +90,14 @@ export default function HighestRatesCarousel({
                   alt=""
                 />
               </Link>
-              <div
-                className={styles.favorites_button}
-                onClick={() =>
-                  favorite
-                    ? removeFromFavorites(favorite)
-                    : addToFavorites(item.placeId)
-                }
-              >
+              <div className={styles.favorites_button}>
                 <div className={styles.favorite_btn_container}>
-                  <FavoriteButton favorite={favorite} />
+                  <FavoriteButton
+                    id={item.placeId}
+                    favorite={favorite}
+                    addToFavorites={addToFavorites}
+                    removeFromFavorites={removeFromFavorites}
+                  />
                 </div>
               </div>
             </div>

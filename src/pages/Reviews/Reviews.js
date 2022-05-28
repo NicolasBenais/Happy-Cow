@@ -12,6 +12,7 @@ import VegetarianIcon from "../../assets/img/vegetarianIcon";
 
 // Components
 import StarRating from "../../components/StarRating/StarRating";
+import FavoriteButton from "../../components/FavoriteButton/FavoriteButton";
 
 // Style
 import styles from "./Reviews.module.css";
@@ -26,6 +27,8 @@ export default function Reviews({
   console.log(state);
 
   const tabAddress = state.address.split(",");
+
+  const favorite = favorites.find((favorite) => favorite === state.placeId);
 
   const veganMapMarker = new L.Icon({
     iconUrl: "https://www.happycow.net/img/category/category_vegan.svg?1",
@@ -62,6 +65,14 @@ export default function Reviews({
             </span>
           )}
           <StarRating rating={state.rating} />
+          <div className={styles.favorites_button_container}>
+            <FavoriteButton
+              id={state.placeId}
+              favorite={favorite}
+              addToFavorites={addToFavorites}
+              removeFromFavorites={removeFromFavorites}
+            />
+          </div>
         </span>
         <span>
           <button className={styles.reviews_btn}>

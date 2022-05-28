@@ -10,7 +10,11 @@ import ProfileButton from "./ProfileButton/ProfileButton";
 // Style
 import styles from "./Header.module.css";
 
-export default function Header({ isTokenPresent, setIsTokenPresent }) {
+export default function Header({
+  isTokenPresent,
+  setIsTokenPresent,
+  favorites,
+}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -43,7 +47,12 @@ export default function Header({ isTokenPresent, setIsTokenPresent }) {
         <span>More</span>
       </nav>
       <div className={styles.right_header}>
-        <button className={styles.addList_btn}>Favorites</button>
+        <div className={styles.favorite_button_container}>
+          <button className={styles.favorites_btn}>Favorites</button>
+          {favorites.length > 0 && (
+            <div className={styles.number_of_favorites}>{favorites.length}</div>
+          )}
+        </div>
         {isTokenPresent ? (
           <ProfileButton setIsTokenPresent={setIsTokenPresent} />
         ) : (
