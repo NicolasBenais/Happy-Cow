@@ -43,7 +43,7 @@ export default function Header({ isTokenPresent, setIsTokenPresent }) {
         <span>More</span>
       </nav>
       <div className={styles.right_header}>
-        <button className={styles.addList_btn}>Add listing</button>
+        <button className={styles.addList_btn}>Favorites</button>
         {isTokenPresent ? (
           <ProfileButton setIsTokenPresent={setIsTokenPresent} />
         ) : (

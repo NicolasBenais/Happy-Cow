@@ -9,6 +9,7 @@ import L from "leaflet";
 
 // Components
 import StarRating from "../../components/StarRating/StarRating";
+import MapMarker from "../../assets/MapMarkers";
 
 // Style
 import styles from "./Search.module.css";
@@ -46,6 +47,14 @@ export default function Search() {
           setData(filteredData);
         } else {
           setData(response.data);
+
+          const tab = [];
+          for (let i = 0; i < response.data.length; i++) {
+            if (tab.indexOf(response.data[i].type) === -1) {
+              tab.push(response.data[i].type);
+            }
+          }
+          console.log(tab);
         }
         setIsLoading(false);
       } catch (error) {
@@ -98,8 +107,7 @@ export default function Search() {
       </div>
       <div className={styles.right_main_container}>
         <MapContainer
-          //   center={[state.location.lat, state.location.lng]}
-          center={[51.505, -0.09]}
+          center={[48.8564449, 2.4002913]}
           zoom={13}
           scrollWheelZoom={false}
           style={{ width: "100%", height: "100%", position: "fixed" }}
@@ -108,17 +116,9 @@ export default function Search() {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          {/* {state.type === "vegan" ? (
-            <Marker
-              position={[state.location.lat, state.location.lng]}
-              icon={veganMapMarker}
-            ></Marker>
-          ) : (
-            <Marker
-              position={[state.location.lat, state.location.lng]}
-              icon={vegetarianMapMarker}
-            ></Marker>
-          )} */}
+          {data.map((item) => {
+            return <MapMarker item={item} />;
+          })}
         </MapContainer>
       </div>
     </main>
