@@ -7,6 +7,13 @@
   height: 176px;
   border-radius: 8px;
   object-fit: cover;
+  position: relative;
+}
+
+.favorite_btn_container {
+  position: absolute;
+  top: 4px;
+  right: 16px;
 }
 
 .carousel_itemName {

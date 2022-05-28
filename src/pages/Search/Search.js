@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 
 // Packages
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
 
 // Components
 import StarRating from "../../components/StarRating/StarRating";
@@ -14,24 +13,16 @@ import MapMarker from "../../assets/MapMarkers";
 // Style
 import styles from "./Search.module.css";
 
-export default function Search() {
+export default function Search({
+  favorites,
+  addToFavorites,
+  removeFromFavorites,
+}) {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
 
   const location = useLocation();
   const { state } = location;
-
-  //   Map Markers
-  const veganMapMarker = new L.Icon({
-    iconUrl: "https://www.happycow.net/img/category/category_vegan.svg?1",
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-  });
-  const vegetarianMapMarker = new L.Icon({
-    iconUrl: "https://www.happycow.net/img/category/category_vegetarian.svg?1",
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -117,7 +108,7 @@ export default function Search() {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           {data.map((item) => {
-            return <MapMarker item={item} />;
+            return <MapMarker key={item.placeId} item={item} />;
           })}
         </MapContainer>
       </div>

@@ -16,7 +16,11 @@ import StarRating from "../../components/StarRating/StarRating";
 // Style
 import styles from "./Reviews.module.css";
 
-export default function Reviews() {
+export default function Reviews({
+  favorites,
+  addToFavorites,
+  removeFromFavorites,
+}) {
   const location = useLocation();
   const { state } = location;
   console.log(state);

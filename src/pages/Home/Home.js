@@ -10,7 +10,11 @@ import bannerImg from "../../assets/img/bannerImg.webp";
 // Style
 import styles from "./Home.module.css";
 
-export default function Home() {
+export default function Home({
+  favorites,
+  addToFavorites,
+  removeFromFavorites,
+}) {
   return (
     <main>
       <div className={styles.banner}>
@@ -26,7 +30,11 @@ export default function Home() {
         <h2 className={styles.carousel_title}>
           10 Best Vegan Restaurants in Paris, France
         </h2>
-        <HighestRatesCarousel />
+        <HighestRatesCarousel
+          favorites={favorites}
+          addToFavorites={addToFavorites}
+          removeFromFavorites={removeFromFavorites}
+        />
       </div>
     </main>
   );

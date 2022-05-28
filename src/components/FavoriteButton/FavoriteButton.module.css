@@ -1,0 +1,13 @@
+.favorite_button {
+  border: 1px solid #f44336;
+  height: 40px;
+  width: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f44336;
+  cursor: pointer;
+}

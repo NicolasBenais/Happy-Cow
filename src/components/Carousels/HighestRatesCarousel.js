@@ -8,11 +8,16 @@ import "react-multi-carousel/lib/styles.css";
 
 // Components
 import StarRating from "../../components/StarRating/StarRating";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
 // Style
 import styles from "./HighestRatesCarousel.module.css";
 
-export default function HighestRatesCarousel() {
+export default function HighestRatesCarousel({
+  favorites,
+  addToFavorites,
+  removeFromFavorites,
+}) {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -72,19 +77,35 @@ export default function HighestRatesCarousel() {
       shouldResetAutoplay={false}
     >
       {data.map((item, index) => {
+        const favorite = favorites.find(
+          (favorite) => favorite === item.placeId
+        );
         return (
           <div className={styles.carousel_item} key={index}>
-            <Link to="/reviews" state={item}>
-              <img
-                className={styles.carousel_img}
-                src={item.thumbnail}
-                alt=""
-              />
-            </Link>
+            <div>
+              <Link to="/reviews" state={item}>
+                <img
+                  className={styles.carousel_img}
+                  src={item.thumbnail}
+                  alt=""
+                />
+              </Link>
+              <div
+                className={styles.favorites_button}
+                onClick={() =>
+                  favorite
+                    ? removeFromFavorites(favorite)
+                    : addToFavorites(item.placeId)
+                }
+              >
+                <div className={styles.favorite_btn_container}>
+                  <FavoriteButton favorite={favorite} />
+                </div>
+              </div>
+            </div>
             <Link to="/reviews" state={item}>
               <div className={styles.carousel_itemName}>{item.name}</div>
             </Link>
-
             <StarRating rating={item.rating} />
           </div>
         );
