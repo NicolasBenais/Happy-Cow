@@ -58,8 +58,8 @@
   border: solid 1px #7b4ec3;
 }
 
-.favorites_button_container {
-  position: absolute;
+.favorite_button_container {
+  position: relative;
 }
 
 .number_of_favorites {
@@ -71,7 +71,7 @@
   align-items: center;
   border-radius: 50%;
   padding: 8px;
-  top: 4px;
-  right: 180px;
+  top: -8px;
+  right: -8px;
   font-weight: 700;
 }

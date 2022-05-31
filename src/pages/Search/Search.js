@@ -9,6 +9,7 @@ import "leaflet/dist/leaflet.css";
 // Components
 import StarRating from "../../components/StarRating/StarRating";
 import MapMarker from "../../assets/MapMarkers";
+import FavoriteButton from "../../components/FavoriteButton/FavoriteButton";
 
 // Style
 import styles from "./Search.module.css";
@@ -39,13 +40,13 @@ export default function Search({
         } else {
           setData(response.data);
 
-          const tab = [];
-          for (let i = 0; i < response.data.length; i++) {
-            if (tab.indexOf(response.data[i].type) === -1) {
-              tab.push(response.data[i].type);
-            }
-          }
-          console.log(tab);
+          // const tab = [];
+          // for (let i = 0; i < response.data.length; i++) {
+          //   if (tab.indexOf(response.data[i].type) === -1) {
+          //     tab.push(response.data[i].type);
+          //   }
+          // }
+          // console.log(tab);
         }
         setIsLoading(false);
       } catch (error) {
@@ -75,6 +76,10 @@ export default function Search({
         <div className={styles.separator}></div>
         <div className={styles.left_main_wrapper}>
           {data.map((item, index) => {
+            const favorite = favorites.find(
+              (favorite) => favorite === item.placeId
+            );
+
             return (
               //   <Link to="/reviews" state={item}>
               <div className={styles.item} key={item.placeId}>
@@ -85,9 +90,13 @@ export default function Search({
                   <div className={styles.item_starsRates}>
                     <StarRating rating={item.rating} />
                   </div>
-                  <div className={styles.item_price_distance}>
-                    <span className={styles.price}></span>
-                    <span className={styles.distance}></span>
+                  <div className={styles.favorite_button}>
+                    <FavoriteButton
+                      id={item.placeId}
+                      favorite={favorite}
+                      addToFavorites={addToFavorites}
+                      removeFromFavorites={removeFromFavorites}
+                    />
                   </div>
                 </div>
               </div>

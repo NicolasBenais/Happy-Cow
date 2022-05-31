@@ -27,11 +27,11 @@ export default function HighestRatesCarousel({
       items: 4,
     },
     littleDesktop: {
-      breakpoint: { max: 1200, min: 991 },
+      breakpoint: { max: 1200, min: 1160 },
       items: 3,
     },
     tablet: {
-      breakpoint: { max: 991, min: 464 },
+      breakpoint: { max: 1160, min: 464 },
       items: 2,
     },
     mobile: {
@@ -70,7 +70,6 @@ export default function HighestRatesCarousel({
     <div>Loading</div>
   ) : (
     <Carousel
-      className={styles.HighestRatesCarousel}
       responsive={responsive}
       swipeable={false}
       draggable={false}

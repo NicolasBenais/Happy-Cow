@@ -65,3 +65,10 @@
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
+
+.favorite_button {
+  /* border: solid red 2px; */
+  padding-right: 8px;
+  display: flex;
+  justify-content: flex-end;
+}

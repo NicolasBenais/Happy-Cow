@@ -11,6 +11,7 @@ import Favorites from "./pages/Favorites/Favorites";
 
 // Components
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 // Favorites
 const initFavorites = (key) => {
@@ -94,6 +95,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </Router>
   );
 }
