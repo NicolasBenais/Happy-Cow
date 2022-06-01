@@ -1,5 +1,5 @@
 // Style
-import styles from "./Favorites.module.css";
+// import styles from "./Favorites.module.css";
 
 export default function Favorites({
   favorites,
