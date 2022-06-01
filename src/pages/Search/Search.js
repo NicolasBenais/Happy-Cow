@@ -41,13 +41,13 @@ export default function Search({
           setData(response.data);
 
           // This function to know exactly the types of all of the restaurants
-          const tab = [];
-          for (let i = 0; i < response.data.length; i++) {
-            if (tab.indexOf(response.data[i].type) === -1) {
-              tab.push(response.data[i].type);
-            }
-          }
-          console.log(tab);
+          // const tab = [];
+          // for (let i = 0; i < response.data.length; i++) {
+          //   if (tab.indexOf(response.data[i].type) === -1) {
+          //     tab.push(response.data[i].type);
+          //   }
+          // }
+          // console.log(tab);
         }
         setIsLoading(false);
       } catch (error) {
