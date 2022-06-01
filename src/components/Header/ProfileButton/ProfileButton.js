@@ -30,7 +30,7 @@ export default function ProfileButton({ setIsTokenPresent }) {
           />
         )}
         <span>
-          {firstname}
+          {firstname.charAt(0).toLocaleUpperCase() + firstname.slice(1)}
           {lastname.toUpperCase()}
         </span>
         <i className="fa-solid fa-caret-down"></i>

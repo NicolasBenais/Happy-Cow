@@ -8,10 +8,12 @@ import Input from "../Input/Input";
 import styles from "./Forms.module.css";
 import axios from "axios";
 
-export default function Login({ setIsTokenPresent }) {
+export default function Login({ setIsTokenPresent, onClose }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [errorMessage, setErrorMessage] = useState("");
+  const [error, setError] = useState(false);
+
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -29,8 +31,11 @@ export default function Login({ setIsTokenPresent }) {
       Cookies.set("firstname", response.data.firstname);
       Cookies.set("lastname", response.data.lastname);
       setIsTokenPresent(true);
+      onClose();
     } catch (error) {
       console.log(error.message);
+      setError(true);
+      setErrorMessage(error.response.data.message);
     }
   };
 
@@ -50,6 +55,7 @@ export default function Login({ setIsTokenPresent }) {
         value={password}
         setValue={setPassword}
       />
+      {error && <div className={styles.error_message}>{errorMessage}</div>}
       <button className={styles.submit_btn} type="submit">
         Login
       </button>

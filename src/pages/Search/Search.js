@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 // Packages
 import { MapContainer, TileLayer } from "react-leaflet";
@@ -10,6 +10,9 @@ import "leaflet/dist/leaflet.css";
 import StarRating from "../../components/StarRating/StarRating";
 import MapMarker from "../../assets/MapMarkers";
 import FavoriteButton from "../../components/FavoriteButton/FavoriteButton";
+
+// Assets
+import noImg from "../../assets/img/noimg.png";
 
 // Style
 import styles from "./Search.module.css";
@@ -28,26 +31,19 @@ export default function Search({
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://res.cloudinary.com/lereacteur-apollo/raw/upload/v1575242111/10w-full-stack/Scraping/restaurants.json"
-        );
-
         if (state) {
+          const response = await axios.get(
+            "https://res.cloudinary.com/lereacteur-apollo/raw/upload/v1575242111/10w-full-stack/Scraping/restaurants.json"
+          );
           const filteredData = response.data.filter((item) => {
             return item.address.toLowerCase().includes(state.toLowerCase());
           });
           setData(filteredData);
         } else {
+          const response = await axios.get(
+            "https://res.cloudinary.com/lereacteur-apollo/raw/upload/v1575242111/10w-full-stack/Scraping/restaurants.json"
+          );
           setData(response.data);
-
-          // This function to know exactly the types of all of the restaurants
-          // const tab = [];
-          // for (let i = 0; i < response.data.length; i++) {
-          //   if (tab.indexOf(response.data[i].type) === -1) {
-          //     tab.push(response.data[i].type);
-          //   }
-          // }
-          // console.log(tab);
         }
         setIsLoading(false);
       } catch (error) {
@@ -84,9 +80,21 @@ export default function Search({
             return (
               <div className={styles.item} key={item.placeId}>
                 <div className={styles.item_index}>{index + 1}</div>
-                <img src={item.thumbnail} alt="" />
+                <Link to="/reviews" state={item}>
+                  {item.thumbnail.includes("no-image.jpg") ? (
+                    <img className={styles.item_img} src={noImg} alt="" />
+                  ) : (
+                    <img
+                      className={styles.item_img}
+                      src={item.thumbnail}
+                      alt=""
+                    />
+                  )}
+                </Link>
                 <div className={styles.item_informations}>
-                  <div className={styles.item_name}>{item.name}</div>
+                  <Link to="/reviews" state={item}>
+                    <div className={styles.item_name}>{item.name}</div>
+                  </Link>
                   <div className={styles.item_starsRates}>
                     <StarRating rating={item.rating} />
                   </div>
@@ -127,3 +135,12 @@ export default function Search({
     </main>
   );
 }
+
+// This function to know exactly the types of all of the restaurants
+// const tab = [];
+// for (let i = 0; i < response.data.length; i++) {
+//   if (tab.indexOf(response.data[i].type) === -1) {
+//     tab.push(response.data[i].type);
+//   }
+// }
+// console.log(tab);

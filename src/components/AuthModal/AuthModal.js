@@ -10,7 +10,7 @@ import styles from "./AuthModal.module.css";
 // Assets
 import loginImg from "../../assets/img/login-social.jpeg";
 
-export default function AuthModal({ setIsTokenPresent }) {
+export default function AuthModal({ setIsTokenPresent, onClose }) {
   const [changeForm, setChangeForm] = useState(false);
 
   return (
@@ -47,9 +47,9 @@ export default function AuthModal({ setIsTokenPresent }) {
         </div>
         <div className={styles.form}>
           {changeForm ? (
-            <Signup setIsTokenPresent={setIsTokenPresent} />
+            <Signup setIsTokenPresent={setIsTokenPresent} onClose={onClose} />
           ) : (
-            <Login setIsTokenPresent={setIsTokenPresent} />
+            <Login setIsTokenPresent={setIsTokenPresent} onClose={onClose} />
           )}
         </div>
       </div>

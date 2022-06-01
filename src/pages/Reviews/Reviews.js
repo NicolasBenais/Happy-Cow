@@ -24,7 +24,6 @@ export default function Reviews({
 }) {
   const location = useLocation();
   const { state } = location;
-  console.log(state);
 
   const tabAddress = state.address.split(",");
 

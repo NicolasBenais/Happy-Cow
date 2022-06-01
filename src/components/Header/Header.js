@@ -24,7 +24,10 @@ export default function Header({
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       >
-        <AuthModal setIsTokenPresent={setIsTokenPresent} />
+        <AuthModal
+          setIsTokenPresent={setIsTokenPresent}
+          onClose={() => setIsModalOpen(false)}
+        />
       </Modal>
       <nav className={styles.left_header}>
         <Link to="/">
