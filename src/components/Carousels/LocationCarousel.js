@@ -59,12 +59,7 @@ export default function LocationCarousel({
         const response = await axios.get(
           "https://res.cloudinary.com/lereacteur-apollo/raw/upload/v1575242111/10w-full-stack/Scraping/restaurants.json"
         );
-        // const tab =[]
-        // for (let i = 0; i < response.data.length; i++) {
-        //         if (response.data[i].location.lat && response.data[i].location.lng < ) {
 
-        //         }
-        // }
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);
