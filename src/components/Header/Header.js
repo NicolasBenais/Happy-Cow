@@ -35,7 +35,7 @@ export default function Header({
               marginLeft: "16px",
             }}
           >
-            <Logo width="180px" height="41x" />
+            <Logo width="180px" height="41px" />
           </span>
         </Link>
         <span>Explore</span>
