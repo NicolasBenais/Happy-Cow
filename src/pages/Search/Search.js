@@ -41,13 +41,13 @@ export default function Search({
           setData(response.data);
 
           // This function to know exactly the types of all of the restaurants
-          // const tab = [];
-          // for (let i = 0; i < response.data.length; i++) {
-          //   if (tab.indexOf(response.data[i].type) === -1) {
-          //     tab.push(response.data[i].type);
-          //   }
-          // }
-          // console.log(tab);
+          const tab = [];
+          for (let i = 0; i < response.data.length; i++) {
+            if (tab.indexOf(response.data[i].type) === -1) {
+              tab.push(response.data[i].type);
+            }
+          }
+          console.log(tab);
         }
         setIsLoading(false);
       } catch (error) {
@@ -113,7 +113,7 @@ export default function Search({
           }
           zoom={14}
           scrollWheelZoom={false}
-          style={{ width: "100%", height: "100%", position: "fixed" }}
+          style={{ width: "50vw", height: "100vh", position: "fixed" }}
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

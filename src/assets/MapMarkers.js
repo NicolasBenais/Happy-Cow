@@ -7,7 +7,7 @@ const icons = {
   "Veg Store": "https://www.happycow.net/img/category/category_veg-shop.svg",
   vegan: "https://www.happycow.net/img/category/category_vegan.svg?1",
   vegetarian: "https://www.happycow.net/img/category/category_vegetarian.svg?1",
-  other: "https://www.happycow.net/img/category/category_other.svg",
+  Other: "https://www.happycow.net/img/category/category_other.svg",
   "Health Store":
     "https://www.happycow.net/img/category/category_health-store.svg",
   "veg-options":
