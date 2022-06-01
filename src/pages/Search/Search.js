@@ -20,7 +20,7 @@ export default function Search({
   removeFromFavorites,
 }) {
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState();
 
   const location = useLocation();
   const { state } = location;
@@ -82,7 +82,6 @@ export default function Search({
             );
 
             return (
-              //   <Link to="/reviews" state={item}>
               <div className={styles.item} key={item.placeId}>
                 <div className={styles.item_index}>{index + 1}</div>
                 <img src={item.thumbnail} alt="" />
@@ -101,15 +100,18 @@ export default function Search({
                   </div>
                 </div>
               </div>
-              //   </Link>
             );
           })}
         </div>
       </div>
       <div className={styles.right_main_container}>
         <MapContainer
-          center={[48.8564449, 2.4002913]}
-          zoom={13}
+          center={
+            data
+              ? [data[0].location.lat, data[0].location.lng]
+              : [48.8564449, 2.4002913]
+          }
+          zoom={14}
           scrollWheelZoom={false}
           style={{ width: "100%", height: "100%", position: "fixed" }}
         >
