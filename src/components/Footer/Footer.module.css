@@ -1,5 +1,84 @@
 .footer {
+  margin-top: 40px;
+  border-top: 1px solid lightgrey;
+}
+
+.main_container {
+  padding-top: 12px;
   display: flex;
   justify-content: center;
-  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.container {
+  margin-right: 28px;
+}
+
+.main_button,
+.button {
+  border: none;
+  background-color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.main_button {
+  color: #7b4ec3;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.button {
+  margin: 8px 0;
+}
+
+.main_button:hover {
+  color: #9069cd;
+}
+
+.main_button:hover,
+.button:hover {
+  text-decoration: underline;
+}
+
+.img {
+  display: flex;
+}
+
+.logo {
+  width: 90px;
+  margin-bottom: 8px;
+}
+
+.ios_img,
+.android_img {
+  display: flex;
+  flex-direction: column;
+}
+
+.ios_app_img,
+.android_app_img {
+  width: 90px;
+}
+
+.ios_app_img {
+  margin-right: 20px;
+}
+
+.bottom_footer {
+  text-align: center;
+  margin-top: 8px;
+  padding: 12px;
+  background-color: #7b4ec3;
+  color: white;
+  font-size: 20px;
+}
+
+.separator {
+  border: 1px solid lightgrey;
 }

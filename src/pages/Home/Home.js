@@ -1,7 +1,6 @@
 // Components
 import Searchbar from "../../components/SearchBar/Searchbar";
 import HighestRatesCarousel from "../../components/Carousels/HighestRatesCarousel";
-import LocationCarousel from "../../components/Carousels/LocationCarousel";
 
 // Assets
 import bannerImg from "../../assets/img/bannerImg.webp";
@@ -30,11 +29,6 @@ export default function Home({
           10 Best Vegan Restaurants in Paris, France
         </h2>
         <HighestRatesCarousel
-          favorites={favorites}
-          addToFavorites={addToFavorites}
-          removeFromFavorites={removeFromFavorites}
-        />
-        <LocationCarousel
           favorites={favorites}
           addToFavorites={addToFavorites}
           removeFromFavorites={removeFromFavorites}
