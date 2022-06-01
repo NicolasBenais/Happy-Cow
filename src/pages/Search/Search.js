@@ -40,6 +40,7 @@ export default function Search({
         } else {
           setData(response.data);
 
+          // This function to know exactly the types of all of the restaurants
           // const tab = [];
           // for (let i = 0; i < response.data.length; i++) {
           //   if (tab.indexOf(response.data[i].type) === -1) {
