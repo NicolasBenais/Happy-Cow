@@ -1,5 +1,6 @@
 .vegan_name > h2,
 .vegetarian_name > h2,
+.healthstore_name > h2,
 .top_container,
 .main_container {
   width: 1076px;
@@ -7,14 +8,16 @@
 }
 
 .vegan_name,
-.vegetarian_name {
+.vegetarian_name,
+.healthstore_name {
   height: 96px;
   display: flex;
   align-items: center;
 }
 
 .vegan_name > h2,
-.vegetarian_name > h2 {
+.vegetarian_name > h2,
+.healthstore_name > h2 {
   font-size: 30px;
   line-height: 45px;
   font-weight: 800;
@@ -27,6 +30,10 @@
 
 .vegetarian_name {
   background-color: #8a2091;
+}
+
+.healthstore_name {
+  background-color: #b49903;
 }
 
 .top_container {

@@ -13,6 +13,7 @@ import VegetarianIcon from "../../assets/img/vegetarianIcon";
 // Components
 import StarRating from "../../components/StarRating/StarRating";
 import FavoriteButton from "../../components/FavoriteButton/FavoriteButton";
+import MapMarker from "../../assets/MapMarkers";
 
 // Style
 import styles from "./Reviews.module.css";
@@ -44,7 +45,11 @@ export default function Reviews({
     <main>
       <div
         className={
-          state.type === "vegan" ? styles.vegan_name : styles.vegetarian_name
+          state.type === "vegan"
+            ? styles.vegan_name
+            : state.type === "vegetarian"
+            ? styles.vegetarian_name
+            : styles.healthstore_name
         }
       >
         <h2>{state.name}</h2>
@@ -181,17 +186,7 @@ export default function Reviews({
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-              {state.type === "vegan" ? (
-                <Marker
-                  position={[state.location.lat, state.location.lng]}
-                  icon={veganMapMarker}
-                ></Marker>
-              ) : (
-                <Marker
-                  position={[state.location.lat, state.location.lng]}
-                  icon={vegetarianMapMarker}
-                ></Marker>
-              )}
+              <MapMarker item={state} popup={false} />
             </MapContainer>
           </div>
         </div>

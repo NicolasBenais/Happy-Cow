@@ -11,20 +11,22 @@ import FavoriteButton from "../FavoriteButton/FavoriteButton";
 // Style
 import styles from "./HighestRatesCarousel.module.css";
 
-export default function HighestRatesCarousel({
+export default function HotelsCarousel({
   data,
   favorites,
   addToFavorites,
   removeFromFavorites,
 }) {
-  const filteredData = data
-    .sort(function (a, b) {
-      return a.category - b.category;
-    })
-    .sort(function (a, b) {
-      return b.rating - a.rating;
-    })
-    .slice(0, 10);
+  const filteredData = [];
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].type === "Health Store") {
+      if (!data[i].thumbnail.includes("no-image")) {
+        if (filteredData.length < 10) {
+          filteredData.push(data[i]);
+        }
+      }
+    }
+  }
 
   const responsive = {
     desktop: {
