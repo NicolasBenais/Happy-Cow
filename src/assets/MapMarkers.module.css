@@ -1,0 +1,25 @@
+.popup {
+  padding: 0;
+}
+
+.thumbnail {
+  width: 120px;
+}
+
+.item_name,
+.item_address {
+  width: 120px;
+  height: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item_name {
+  color: #7b4ec3;
+  font-weight: 800;
+}
+
+.item_address {
+  color: #444444;
+}

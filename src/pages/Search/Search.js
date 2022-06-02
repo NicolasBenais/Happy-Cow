@@ -77,7 +77,6 @@ export default function Search({
 
             return (
               <div className={styles.item} key={item.placeId}>
-                <div className={styles.item_index}>{index + 1}</div>
                 <Link to="/reviews" state={item}>
                   {item.thumbnail.includes("no-image.jpg") ? (
                     <img className={styles.item_img} src={noImg} alt="" />
@@ -126,7 +125,7 @@ export default function Search({
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           {data.map((item) => {
-            return <MapMarker key={item.placeId} item={item} />;
+            return <MapMarker key={item.placeId} item={item} popup={true} />;
           })}
         </MapContainer>
       </div>
