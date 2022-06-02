@@ -60,7 +60,7 @@ export default function Home({
           removeFromFavorites={removeFromFavorites}
         />
         <h2 className={styles.carousel_title}>
-          10 Best Vegan Restaurants in Paris, France
+          10 Best Health Stores in Paris, France
         </h2>
         <HotelsCarousel
           data={data}
