@@ -41,13 +41,15 @@ export default function Header({
             <Logo width="180px" height="41px" />
           </span>
         </Link>
-        <span>Explore</span>
-        <span>Forum</span>
-        <span>Blog</span>
-        <span>Community</span>
-        <span>The App</span>
-        <span>Shop</span>
-        <span>More</span>
+        <nav className={styles.nav}>
+          <span>Explore</span>
+          <span>Forum</span>
+          <span>Blog</span>
+          <span>Community</span>
+          <span>The App</span>
+          <span>Shop</span>
+          <span>More</span>
+        </nav>
       </nav>
       <div className={styles.right_header}>
         <div className={styles.favorite_button_container}>

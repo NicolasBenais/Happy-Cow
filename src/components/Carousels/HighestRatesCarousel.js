@@ -27,11 +27,11 @@ export default function HighestRatesCarousel({
       items: 4,
     },
     littleDesktop: {
-      breakpoint: { max: 1200, min: 1160 },
+      breakpoint: { max: 1200, min: 964 },
       items: 3,
     },
     tablet: {
-      breakpoint: { max: 1160, min: 464 },
+      breakpoint: { max: 964, min: 464 },
       items: 2,
     },
     mobile: {

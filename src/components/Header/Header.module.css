@@ -17,10 +17,10 @@
   display: flex;
   align-items: center;
 }
-.left_header > span {
+.nav > span {
   margin-right: 12px;
 }
-.left_header > span:hover {
+.nav > span:hover {
   cursor: pointer;
   color: #424242;
 }
@@ -74,4 +74,10 @@
   top: -4px;
   right: -4px;
   font-weight: 700;
+}
+
+@media (max-width: 1200px) {
+  .nav > span {
+    display: none;
+  }
 }

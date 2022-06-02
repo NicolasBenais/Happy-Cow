@@ -31,18 +31,16 @@ export default function Search({
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const response = await axios.get(
+          "https://res.cloudinary.com/lereacteur-apollo/raw/upload/v1575242111/10w-full-stack/Scraping/restaurants.json"
+        );
+
         if (state) {
-          const response = await axios.get(
-            "https://res.cloudinary.com/lereacteur-apollo/raw/upload/v1575242111/10w-full-stack/Scraping/restaurants.json"
-          );
           const filteredData = response.data.filter((item) => {
             return item.address.toLowerCase().includes(state.toLowerCase());
           });
           setData(filteredData);
         } else {
-          const response = await axios.get(
-            "https://res.cloudinary.com/lereacteur-apollo/raw/upload/v1575242111/10w-full-stack/Scraping/restaurants.json"
-          );
           setData(response.data);
         }
         setIsLoading(false);
