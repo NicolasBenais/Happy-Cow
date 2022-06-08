@@ -1,6 +1,6 @@
 .searchbar_container {
   display: flex;
-  /* width: 50rem; */
+  margin: 0 20px;
 }
 
 .searchbar_input {

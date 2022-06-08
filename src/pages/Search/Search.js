@@ -111,6 +111,7 @@ export default function Search({
       </div>
       <div className={styles.right_main_container}>
         <MapContainer
+          id="map"
           center={
             data
               ? [data[0].location.lat, data[0].location.lng]

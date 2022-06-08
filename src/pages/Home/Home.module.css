@@ -8,6 +8,8 @@
 
 .banner > img {
   width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
 .banner_content {
@@ -24,6 +26,7 @@
   font-weight: 800;
   text-align: center;
   margin-bottom: 20px;
+  padding: 0 20px;
 }
 
 .main_container {

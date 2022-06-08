@@ -20,6 +20,11 @@
 .right_main_container {
   /* border: solid yellow 2px; */
   width: 50%;
+  z-index: 9;
+}
+
+#map {
+  z-index: 9;
 }
 
 .searchbar_input {
