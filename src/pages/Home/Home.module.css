@@ -42,3 +42,13 @@
   padding: 0 10px;
   margin: 40px 0;
 }
+
+@media (max-width: 390px) {
+  .banner_content > p {
+    padding: 0;
+  }
+
+  .carousel_title {
+    margin: 40px 0 8px 0;
+  }
+}
