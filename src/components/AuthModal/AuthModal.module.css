@@ -2,7 +2,6 @@
   display: flex;
   background-color: #fff;
   max-height: 95vh;
-  max-width: 95vw;
   overflow: auto;
   border-radius: 8px;
 }
@@ -67,4 +66,10 @@
   height: 4px;
   background-color: #7b4ec3;
   border-radius: 2px;
+}
+
+@media (max-width: 857px) {
+  .left_modal_container {
+    display: none;
+  }
 }
