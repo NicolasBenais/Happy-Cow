@@ -30,7 +30,8 @@
   align-items: center;
 }
 
-.login_btn,
+.login_btn_laptop,
+.login_btn_mobile,
 .favorites_btn {
   font-size: 16px;
   line-height: 24px;
@@ -41,14 +42,19 @@
   outline: none;
 }
 
-.login_btn {
+.login_btn_laptop,
+.login_btn_mobile {
   background-color: #7b4ec3;
   border: none;
   color: white;
   margin: 0 12px 0 12px;
 }
-.login_btn:hover {
+.login_btn_laptop:hover {
   background-color: #9069cd;
+}
+
+.login_btn_mobile {
+  display: none;
 }
 
 .favorites_btn,
@@ -79,5 +85,15 @@
 @media (max-width: 1200px) {
   .nav > span {
     display: none;
+  }
+}
+
+@media (max-width: 390px) {
+  .login_btn_laptop {
+    display: none;
+  }
+
+  .login_btn_mobile {
+    display: flex;
   }
 }

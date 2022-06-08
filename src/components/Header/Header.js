@@ -61,12 +61,20 @@ export default function Header({
         {isTokenPresent ? (
           <ProfileButton setIsTokenPresent={setIsTokenPresent} />
         ) : (
-          <button
-            className={styles.login_btn}
-            onClick={() => setIsModalOpen(true)}
-          >
-            Login / Join
-          </button>
+          <div>
+            <button
+              className={styles.login_btn_laptop}
+              onClick={() => setIsModalOpen(true)}
+            >
+              Login / Join
+            </button>
+            <button
+              className={styles.login_btn_mobile}
+              onClick={() => setIsModalOpen(true)}
+            >
+              Login
+            </button>
+          </div>
         )}
       </div>
     </header>
