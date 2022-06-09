@@ -2,9 +2,8 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 // Packages
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
 
 // Assets
 import VeganIcon from "../../assets/img/veganIcon";
@@ -14,6 +13,7 @@ import VegetarianIcon from "../../assets/img/vegetarianIcon";
 import StarRating from "../../components/StarRating/StarRating";
 import FavoriteButton from "../../components/FavoriteButton/FavoriteButton";
 import MapMarker from "../../assets/MapMarkers";
+import ReviewsCarousel from "../../components/Carousels/ReviewsCarousel";
 
 // Style
 import styles from "./Reviews.module.css";
@@ -30,17 +30,6 @@ export default function Reviews({
 
   const favorite = favorites.find((favorite) => favorite === state.placeId);
 
-  const veganMapMarker = new L.Icon({
-    iconUrl: "https://www.happycow.net/img/category/category_vegan.svg?1",
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-  });
-
-  const vegetarianMapMarker = new L.Icon({
-    iconUrl: "https://www.happycow.net/img/category/category_vegetarian.svg?1",
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-  });
   return (
     <main>
       <div
@@ -78,7 +67,7 @@ export default function Reviews({
             />
           </div>
         </span>
-        <span>
+        <span className={styles.hidden}>
           <button className={styles.reviews_btn}>
             <span style={{ marginRight: "8px" }}>
               <i className="fa-solid fa-pencil"></i>
@@ -108,6 +97,9 @@ export default function Reviews({
         <span>{tabAddress[tabAddress.length - 3]}</span>
       </div>
       <div className={styles.main_container}>
+        <div className={styles.carousel}>
+          <ReviewsCarousel pictures={state.pictures} />
+        </div>
         <div className={styles.left_main_container}>
           <div className={styles.pictures_container}>
             <img

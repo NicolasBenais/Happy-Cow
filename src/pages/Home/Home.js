@@ -41,7 +41,7 @@ export default function Home({
   ) : (
     <main>
       <div className={styles.banner}>
-        <img src={bannerImg} alt="" />
+        <img src={bannerImg} alt="Bannier" />
         <div className={styles.banner_content}>
           <p>Find Vegan Restaurants Nearby</p>
           <div className={styles.searchbar}>
