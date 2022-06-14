@@ -24,3 +24,9 @@ Click on the red heart to add/remove a place from your favorites
 if you want to see more of it !
 
 Thank's for trying it !
+
+### Made with
+
+ReactJS, CSS3, Axios
+I also used components like Leaflet, React-multi-carousel and React-star-rating-component
+Deployed on Netlify for the front and Heroku for the back
