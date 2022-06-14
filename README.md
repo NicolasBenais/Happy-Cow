@@ -30,3 +30,4 @@ Thank's for trying it !
 ReactJS, CSS3, Axios
 I also used components like Leaflet, React-multi-carousel and React-star-rating-component
 Deployed on Netlify for the front and Heroku for the back
+I've made this replica in less than two weeks.
